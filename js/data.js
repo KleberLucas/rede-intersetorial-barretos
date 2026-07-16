@@ -35,12 +35,16 @@ const REDE_DATA = {
             "proteção social especial e educação",
             "atendimento ambulatorial especializado"
           ],
-          contato: {},
+          contato: {
+            telefone: "(17) 3321-7810",
+            telefone2: "(17) 3321-7811",
+            email: "apae.barretos@hotmail.com"
+          },
           tipo: "encaminhamento",
           icone: "🧡",
           detalhes: {
             descricao: "A Associação de Pais e Amigos dos Excepcionais de Barretos é uma organização da sociedade civil articulada com as Secretarias Municipais de Assistência Social e Desenvolvimento Humano, Educação e Saúde, além da Secretaria de Estado da Educação. Executa o Serviço de Proteção Social Especial para Pessoas com Deficiência, Pessoas Idosas e suas Famílias, somado a ações educacionais e atendimento ambulatorial especializado.",
-            endereco: "",
+            endereco: "Avenida Dr. Roberto Rios, nº 999, Jockey Club, Barretos/SP — CEP 14787-170",
             horario: "",
             publicoAlvo: "Pessoas de 12 a 70 anos com deficiência intelectual, física ou ambas, e suas famílias — atendimento em todo o município de Barretos",
             servicos: [
@@ -62,12 +66,17 @@ const REDE_DATA = {
             "pessoas com deficiência, idosos e famílias",
             "crianças e adolescentes com deficiência"
           ],
-          contato: {},
+          contato: {
+            telefone: "(17) 3322-9608",
+            telefone2: "(17) 98154-9118",
+            telefone3: "(17) 3322-3322",
+            email: "abavin@hotmail.com"
+          },
           tipo: "procura",
           icone: "🌈",
           detalhes: {
             descricao: "A ABAVIN atua em parceria com a Secretaria de Assistência Social e Desenvolvimento Humano e com a Secretaria Municipal de Educação. Promove a inclusão social de pessoas com deficiência, pessoas idosas e suas famílias, bem como de crianças e adolescentes com deficiência ou transtornos de aprendizagem, com suporte de equipe multidisciplinar.",
-            endereco: "Sede na região central — referência inicial nos territórios I e IV; atuação em todo o município",
+            endereco: "Unidade I: Rua 20, nº 1140, Centro, Barretos/SP — CEP 14780-070 | Unidade II: Avenida 25, nº 1300, Centro, Barretos/SP",
             horario: "",
             publicoAlvo: "Crianças e adolescentes com deficiência intelectual; pessoas com deficiência, pessoas idosas e suas famílias; crianças da rede municipal com transtornos ou dificuldades de aprendizagem",
             servicos: [
@@ -77,7 +86,8 @@ const REDE_DATA = {
               "Redescobrindo o Aprender — crianças da rede municipal com dificuldades de aprendizagem"
             ],
             acesso: "Por encaminhamento do CRAS, CREAS ou Fórum, além de busca espontânea.",
-            articulacao: "Secretaria da Cultura, Conselho Tutelar, Secretaria da Saúde, organizações não governamentais e outros serviços municipais."
+            articulacao: "Secretaria da Cultura, Conselho Tutelar, Secretaria da Saúde, organizações não governamentais e outros serviços municipais.",
+            observacao: "Unidade I: (17) 3322-9608 / (17) 98154-9118. Unidade II: (17) 3322-3322. Confirme em qual unidade funciona o serviço procurado."
           }
         }
       ]
@@ -96,12 +106,17 @@ const REDE_DATA = {
             "aprendizagem e empregabilidade",
             "cultura, bem-estar e inclusão"
           ],
-          contato: {},
+          contato: {
+            telefone: "(17) 3312-3050",
+            telefone2: "0800 883 2000",
+            email: "barretos@sp.senac.br",
+            site: "www.sp.senac.br/senac-barretos"
+          },
           tipo: "procura",
           icone: "🎓",
           detalhes: {
             descricao: "O Senac Barretos atua nas áreas de educação profissional, inclusão, cultura, bem-estar, empregabilidade e atendimento à comunidade e às empresas. Oferece cursos, serviços, eventos e parcerias institucionais abertas à população.",
-            endereco: "",
+            endereco: "Avenida 21, nº 087, Centro, Barretos/SP — CEP 14781-344",
             horario: "",
             publicoAlvo: "Estudantes, jovens aprendizes, trabalhadores, comunidade em geral, empresas, órgãos públicos e organizações sociais",
             servicos: [
@@ -148,7 +163,7 @@ const REDE_DATA = {
             ],
             acesso: "Encaminhamento pelas escolas municipais, procura direta das famílias ou encaminhamento por profissionais da saúde.",
             articulacao: "Secretarias de Saúde e Assistência Social, CRAS, CREAS, conselhos de direitos, Conselho Tutelar, entidades sociais, Defensoria Pública, Promotoria e equipe técnica do Fórum.",
-            observacao: "Contatos: Setor de Inclusão (17) 3612-2221; Kelly (17) 99124-8630. Confirme o número institucional antes de divulgar."
+            observacao: "Contatos informados pela apresentação institucional: (17) 3612-2221 e Kelly (17) 99124-8630."
           }
         }
       ]
@@ -167,13 +182,16 @@ const REDE_DATA = {
             "fisioterapia, fono, TO e psicologia",
             "ambulatórios e programas especiais"
           ],
-          contato: {},
+          contato: {
+            telefone: "(17) 3612-2510",
+            telefone2: "(17) 3322-1575"
+          },
           tipo: "encaminhamento",
           icone: "🏥",
           detalhes: {
-            descricao: "Vinculado à Secretaria Municipal de Saúde, o CMR oferece reabilitação física e atendimentos especializados. Atende demandas de reabilitação física; não contempla, nesse fluxo, deficiência intelectual, TEA, transtorno de aprendizagem ou múltiplas deficiências como condição principal.",
-            endereco: "Via Conselheiro Antônio Prado, 1365 — Barretos/SP",
-            horario: "",
+            descricao: "O Centro Municipal de Reabilitação Solange Lana de Ávila, vinculado à Secretaria Municipal de Saúde, oferece reabilitação física e atendimentos especializados. Atende demandas de reabilitação física; não contempla, nesse fluxo, deficiência intelectual, TEA, transtorno de aprendizagem ou múltiplas deficiências como condição principal.",
+            endereco: "Via Conselheiro Antônio Prado, nº 1365, Barretos/SP",
+            horario: "Segunda a sexta-feira, das 7h às 20h",
             publicoAlvo: "Pessoas de todas as idades com necessidades de reabilitação física",
             servicos: [
               "Fisioterapia — ortopedia, neurologia, cardiorrespiratória, vestibular, desenvolvimento infantil e acupuntura",
@@ -187,7 +205,8 @@ const REDE_DATA = {
               "Programa Sorrindo para o Futuro (CEMEIs)",
               "Hidroginástica — população em geral, sem encaminhamento médico"
             ],
-            acesso: "Reabilitação por encaminhamento médico pelo Sistema Assessor Público. Hidroginástica dispensa encaminhamento."
+            acesso: "Reabilitação por encaminhamento médico pelo Sistema Assessor Público. Hidroginástica dispensa encaminhamento.",
+            observacao: "Telefone principal (CNES): (17) 3612-2510. Alternativa amplamente divulgada: (17) 3322-1575."
           }
         },
         {
@@ -197,13 +216,15 @@ const REDE_DATA = {
             "acolhimento 24 horas",
             "reabilitação psicossocial"
           ],
-          contato: {},
+          contato: {
+            telefone: "(17) 3612-2481"
+          },
           tipo: "procura",
           icone: "🌙",
           detalhes: {
             descricao: "O CAPS III integra a Secretaria Municipal de Saúde e realiza atendimento psiquiátrico e psicossocial a pessoas com transtornos mentais graves e persistentes que necessitam de cuidado intensivo, reabilitação psicossocial e apoio para reintegração comunitária. Possui atuação regional.",
-            endereco: "",
-            horario: "Acolhimento e escuta qualificada 24 horas",
+            endereco: "Rua 14, nº 140, entre as avenidas 27 e 29, Centro, Barretos/SP",
+            horario: "Funcionamento 24 horas — acolhimento e escuta qualificada",
             publicoAlvo: "Pessoas com transtornos mentais graves e persistentes",
             servicos: [
               "Acolhimento e escuta qualificada 24 horas",
@@ -223,13 +244,15 @@ const REDE_DATA = {
             "psiquiatria e psicoterapia",
             "atendimento infantil e dependência química"
           ],
-          contato: {},
+          contato: {
+            telefone: "(17) 3325-7038"
+          },
           tipo: "encaminhamento",
           icone: "🧠",
           detalhes: {
             descricao: "Integra a Secretaria Municipal de Saúde e atende pessoas com transtornos mentais de intensidade leve a moderada, incluindo ansiedade, depressão moderada, luto persistente e dificuldades emocionais específicas, além de atendimento infantil e relacionados à dependência química.",
-            endereco: "",
-            horario: "",
+            endereco: "Avenida 17, nº 221, Centro, Barretos/SP",
+            horario: "Das 7h às 17h",
             publicoAlvo: "Pessoas com transtornos mentais leves a moderados; crianças; pessoas em situação de dependência química — abrangência municipal",
             servicos: [
               "Consulta médica psiquiátrica",
@@ -240,7 +263,8 @@ const REDE_DATA = {
             ],
             acesso: "Adultos e crianças: encaminhamento pela Atenção Primária à Saúde ou pelo CAPS. Dependência química: demanda espontânea, conforme o fluxo do serviço.",
             articulacao: "Atenção Primária à Saúde e CAPS.",
-            responsaveis: "Camila Ávila — Ambulatório; Elissandra Araújo — interlocução de Saúde Mental"
+            responsaveis: "Camila Ávila — Ambulatório; Elissandra Araújo — interlocução de Saúde Mental",
+            observacao: "Telefone e endereço encontrados em fonte pública mais antiga. Para confirmação, contate a Secretaria Municipal de Saúde: (17) 3612-2000."
           }
         }
       ]
@@ -267,7 +291,7 @@ const REDE_DATA = {
           icone: "🛡️",
           detalhes: {
             descricao: "A DDM Barretos integra a Polícia Civil do Estado de São Paulo, vinculada à Secretaria de Segurança Pública, ao Deinter 3 — Ribeirão Preto e à Seccional de Barretos. Apura crimes, identifica autoria e esclarece as circunstâncias dos fatos envolvendo violência doméstica, familiar e sexual.",
-            endereco: "Rua Dezoito, 137, entre as avenidas 29 e 31 — Centro, Barretos/SP",
+            endereco: "Rua 18, nº 137, entre as avenidas 29 e 31, Centro, Barretos/SP",
             horario: "Dias úteis, das 8h às 18h",
             publicoAlvo: "Mulheres vítimas de violência; crianças e adolescentes vítimas de crimes abrangidos pela unidade; casos de violência doméstica e crimes sexuais",
             servicos: [
@@ -289,13 +313,17 @@ const REDE_DATA = {
             "oito conselhos municipais",
             "articulação intersetorial"
           ],
-          contato: {},
+          contato: {
+            telefone: "(17) 3612-2650",
+            email: "assistenciasocial@barretos.sp.gov.br",
+            email2: "contato.assistenciasocial@barretos.sp.gov.br"
+          },
           tipo: "rede",
           icone: "🏛️",
           detalhes: {
-            descricao: "Vinculada à Secretaria Municipal de Assistência Social, a Casa dos Conselhos funciona como polo estratégico da rede socioassistencial. Oferece estrutura institucional para a articulação intersetorial, a participação democrática e o fortalecimento do controle social das políticas públicas.",
-            endereco: "",
-            horario: "",
+            descricao: "Vinculada à Secretaria Municipal de Assistência Social e Desenvolvimento Humano, a Casa dos Conselhos funciona como polo estratégico da rede socioassistencial. Oferece estrutura institucional para a articulação intersetorial, a participação democrática e o fortalecimento do controle social das políticas públicas.",
+            endereco: "Avenida Almirante Gago Coutinho, nº 500, Bairro Rios, Barretos/SP — CEP 14783-200",
+            horario: "Segunda a sexta-feira, das 8h às 14h",
             publicoAlvo: "Conselhos, sociedade civil, usuários, trabalhadores e poder público",
             servicos: [
               "CMAS — Conselho Municipal de Assistência Social",
@@ -310,7 +338,8 @@ const REDE_DATA = {
               "Articulação entre poder público, usuários e organizações sociais"
             ],
             acesso: "Participação por meio das reuniões, representações institucionais, processos de composição dos conselhos e contato com a Casa dos Conselhos.",
-            articulacao: "Poder público, sociedade civil e políticas públicas municipais."
+            articulacao: "Poder público, sociedade civil e políticas públicas municipais.",
+            observacao: "Contato da Secretaria Municipal de Assistência Social e Desenvolvimento Humano, responsável pelo equipamento."
           }
         }
       ]
@@ -331,13 +360,14 @@ const REDE_DATA = {
           ],
           contato: {
             telefone: "(11) 97266-9135",
+            telefone2: "(17) 99748-0670",
             email: "pei.barretos@itsbrasil.org.br"
           },
           tipo: "procura",
           icone: "💼",
           detalhes: {
             descricao: "O Polo de Empregabilidade Inclusiva de Barretos integra o Programa Meu Emprego Inclusivo, executado regionalmente pelo ITS Brasil, com metodologia de Emprego Apoiado. Promove inclusão, permanência e desenvolvimento profissional de pessoas com deficiência, atuando com candidatos e empregadores.",
-            endereco: "Poupatempo — Via Conselheiro Antônio Prado, 1400, Pedro Cavalini, Barretos/SP",
+            endereco: "Poupatempo — North Shopping, Via Conselheiro Antônio Prado, nº 1400, Pedro Cavalini, Barretos/SP",
             horario: "Segunda a sexta-feira, das 9h às 12h e das 13h às 17h",
             publicoAlvo: "Pessoas com deficiência a partir de 16 anos e empresas interessadas em contratação inclusiva — região de Barretos e cidades vizinhas",
             servicos: [

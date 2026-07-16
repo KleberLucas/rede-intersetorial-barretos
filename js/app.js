@@ -53,12 +53,13 @@
   }
 
   function temContato(contato) {
-    return !!(contato && (contato.telefone || contato.telefone2 || contato.email || contato.site));
+    return !!(contato && (contato.telefone || contato.telefone2 || contato.telefone3 || contato.email || contato.email2 || contato.site));
   }
 
   function linkTelefone(numero, bloco) {
     const tel = String(numero).replace(/\D/g, '');
-    return `<a href="tel:+55${tel}">${bloco ? '📞 ' : ''}Tel. ${numero}</a>`;
+    const href = tel.startsWith('0800') ? `tel:${tel}` : `tel:+55${tel}`;
+    return `<a href="${href}">${bloco ? '📞 ' : ''}Tel. ${numero}</a>`;
   }
 
   function formatarContato(contato, bloco) {
@@ -66,8 +67,12 @@
     const itens = [];
     if (contato.telefone) itens.push(linkTelefone(contato.telefone, bloco));
     if (contato.telefone2) itens.push(linkTelefone(contato.telefone2, bloco));
+    if (contato.telefone3) itens.push(linkTelefone(contato.telefone3, bloco));
     if (contato.email) {
       itens.push(`<a href="mailto:${contato.email}">${bloco ? '✉️ ' : ''}${contato.email}</a>`);
+    }
+    if (contato.email2) {
+      itens.push(`<a href="mailto:${contato.email2}">${bloco ? '✉️ ' : ''}${contato.email2}</a>`);
     }
     if (contato.site) {
       const url = contato.site.startsWith('http') ? contato.site : `https://${contato.site}`;
