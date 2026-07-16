@@ -341,6 +341,37 @@ const REDE_DATA = {
             articulacao: "Poder público, sociedade civil e políticas públicas municipais.",
             observacao: "Contato da Secretaria Municipal de Assistência Social e Desenvolvimento Humano, responsável pelo equipamento."
           }
+        },
+        {
+          nome: "Conselho Tutelar de Barretos",
+          topicos: [
+            "crianças e adolescentes de 0 a 17 anos",
+            "proteção e denúncias de violações",
+            "plantão 24 horas"
+          ],
+          contato: {
+            telefone: "(17) 98217-5999"
+          },
+          tipo: "procura",
+          icone: "🛡️",
+          detalhes: {
+            descricao: "O Conselho Tutelar de Barretos é um órgão público municipal, permanente, autônomo e não jurisdicional. Sua finalidade é zelar pelo cumprimento dos direitos das crianças e dos adolescentes sempre que houver ameaça ou violação desses direitos. Não integra o Poder Judiciário e não exerce função policial, mas pode aplicar medidas de proteção e requisitar serviços públicos para garantir o atendimento necessário.",
+            endereco: "",
+            horario: "Plantão 24 horas, inclusive em feriados e finais de semana",
+            publicoAlvo: "Crianças e adolescentes de 0 a 17 anos; pais, responsáveis e familiares; casos no município de Barretos — negligência, abandono, violência física, psicológica ou sexual, exploração, evasão escolar, ausência de atendimento de saúde e outras ameaças ou violações de direitos",
+            servicos: [
+              "Receber denúncias e comunicações sobre possíveis violações de direitos",
+              "Acolher, escutar, orientar e acompanhar crianças, adolescentes e responsáveis",
+              "Aplicar medidas de proteção previstas no Estatuto da Criança e do Adolescente",
+              "Orientar e aconselhar pais ou responsáveis",
+              "Requisitar atendimento em saúde, educação, assistência social, previdência, trabalho e segurança",
+              "Encaminhar situações ao Ministério Público ou à autoridade judiciária quando necessário",
+              "Expedir notificações e acompanhar o cumprimento das medidas aplicadas"
+            ],
+            acesso: "Pode ser procurado diretamente pela criança, adolescente, familiar ou qualquer pessoa que tenha conhecimento de possível violação de direitos. Também recebe encaminhamentos de escolas, unidades de saúde, CRAS, CREAS, assistência social, polícia, Ministério Público, Poder Judiciário e demais integrantes da rede de proteção. A denúncia não precisa ser feita apenas pela família.",
+            articulacao: "Escolas e Secretaria Municipal de Educação; unidades de saúde, hospitais e saúde mental; CRAS, CREAS e serviços socioassistenciais; Delegacia de Defesa da Mulher e outras unidades policiais; Ministério Público, Defensoria Pública e Poder Judiciário; CMDCA e organizações que atendem crianças, adolescentes e famílias.",
+            observacao: "Plantão WhatsApp/telefone: (17) 98217-5999 (divulgado pela Prefeitura). Outros canais: Disque 100 (direitos humanos) e, em perigo imediato, Polícia Militar 190. Endereço e telefone fixo da sede não foram confirmados em fonte oficial recente."
+          }
         }
       ]
     },
