@@ -11,7 +11,16 @@
     rede: '💚'
   };
 
-  const isMobile = () => window.innerWidth <= 900;
+  const TIPO_ROTULOS = {
+    procura: 'Procura direta',
+    encaminhamento: 'Encaminhamento',
+    rede: 'Rede parceira'
+  };
+
+  const BREAKPOINT_MOBILE = 768;
+  const isMobile = () => window.innerWidth <= BREAKPOINT_MOBILE;
+
+  let instituicoesIndex = [];
 
   /* ── Utilitários ── */
   function polarParaCartesiano(cx, cy, raio, anguloRad) {
@@ -36,26 +45,44 @@
     return `<path d="M ${x1} ${y1} Q ${cx1} ${cy1} ${x2} ${y2}" stroke="${cor}" stroke-width="${espessura + wobble}" opacity="0.75"/>`;
   }
 
-  function formatarContato(contato) {
+  function formatarNomeCategoria(nome) {
+    return nome
+      .split(', ')
+      .map((parte, i, arr) => i < arr.length - 1 ? parte + ',' : parte)
+      .join('<br>');
+  }
+
+  function formatarContato(contato, bloco) {
     const itens = [];
     if (contato.telefone) {
       const tel = contato.telefone.replace(/\D/g, '');
-      itens.push(`<a href="tel:+55${tel}">Tel. ${contato.telefone}</a>`);
+      itens.push(`<a href="tel:+55${tel}">${bloco ? '📞 ' : ''}Tel. ${contato.telefone}</a>`);
     }
     if (contato.email) {
-      itens.push(`<a href="mailto:${contato.email}">${contato.email}</a>`);
+      itens.push(`<a href="mailto:${contato.email}">${bloco ? '✉️ ' : ''}${contato.email}</a>`);
     }
     if (contato.site) {
       const url = contato.site.startsWith('http') ? contato.site : `https://${contato.site}`;
       const label = contato.site.replace(/^https?:\/\//, '');
-      itens.push(`<a href="${url}" target="_blank" rel="noopener">${label}</a>`);
+      itens.push(`<a href="${url}" target="_blank" rel="noopener">${bloco ? '🌐 ' : ''}${label}</a>`);
     }
-    return itens.join('');
+    return bloco ? itens.map(i => `<p class="modal-contato-item">${i}</p>`).join('') : itens.join('');
   }
 
-  function criarCardHTML(inst, cor) {
+  function criarBolhaCategoria(cat) {
     return `
-      <div class="instituicao-card" data-categoria-cor="${cor}">
+      <div class="categoria-bolha" style="border-color: ${cat.cor}; background: ${cat.corClara || '#fff'}">
+        <div class="categoria-topo">
+          <span class="categoria-numero" style="color: ${cat.cor}">${cat.id}</span>
+          <span class="categoria-icone">${cat.icone}</span>
+        </div>
+        <span class="categoria-nome" style="color: ${cat.cor}">${formatarNomeCategoria(cat.nome)}</span>
+      </div>`;
+  }
+
+  function criarCardHTML(inst, cor, catNome, instId) {
+    return `
+      <div class="instituicao-card" data-inst-id="${instId}" role="button" tabindex="0" aria-label="Ver detalhes de ${inst.nome}">
         <div class="card-inner" style="border-color: ${cor}; background: linear-gradient(135deg, #fff 60%, ${cor}08)">
           <span class="card-icone-inst">${inst.icone || '📍'}</span>
           <h4 class="card-titulo" style="color: ${cor}">${inst.nome}</h4>
@@ -63,13 +90,132 @@
             ${inst.topicos.map(t => `<li>${t}</li>`).join('')}
           </ul>
           <div class="card-contato" style="color: ${cor}">
-            ${formatarContato(inst.contato)}
+            ${formatarContato(inst.contato, false)}
           </div>
           <span class="card-tipo-badge tipo-${inst.tipo}" title="${inst.tipo}">
             ${TIPO_ICONES[inst.tipo] || '📍'}
           </span>
+          <span class="card-ver-mais">Toque para mais info →</span>
         </div>
       </div>`;
+  }
+
+  /* ── Modal ── */
+  function abrirModal(inst, cat) {
+    const overlay = document.getElementById('modal-overlay');
+    const conteudo = document.getElementById('modal-conteudo');
+    const det = inst.detalhes || {};
+
+    conteudo.innerHTML = `
+      <div class="modal-header" style="--modal-cor: ${cat.cor}">
+        <span class="modal-icone">${inst.icone || '📍'}</span>
+        <div>
+          <span class="modal-categoria" style="color: ${cat.cor}">${cat.nome}</span>
+          <h2 id="modal-titulo">${inst.nome}</h2>
+        </div>
+        <span class="modal-tipo-badge tipo-${inst.tipo}">${TIPO_ICONES[inst.tipo]} ${TIPO_ROTULOS[inst.tipo]}</span>
+      </div>
+
+      ${det.descricao ? `<p class="modal-descricao">${det.descricao}</p>` : ''}
+
+      <div class="modal-secao">
+        <h3>Serviços oferecidos</h3>
+        <ul class="modal-lista">
+          ${(det.servicos || inst.topicos).map(s => `<li>${s}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="modal-grid">
+        ${det.publicoAlvo ? `
+          <div class="modal-info-item">
+            <span class="modal-info-icone">👥</span>
+            <div>
+              <strong>Público-alvo</strong>
+              <p>${det.publicoAlvo}</p>
+            </div>
+          </div>` : ''}
+        ${det.endereco ? `
+          <div class="modal-info-item">
+            <span class="modal-info-icone">📍</span>
+            <div>
+              <strong>Endereço</strong>
+              <p>${det.endereco}</p>
+            </div>
+          </div>` : ''}
+        ${det.horario ? `
+          <div class="modal-info-item">
+            <span class="modal-info-icone">🕐</span>
+            <div>
+              <strong>Horário</strong>
+              <p>${det.horario}</p>
+            </div>
+          </div>` : ''}
+      </div>
+
+      <div class="modal-secao modal-contatos">
+        <h3>Contato</h3>
+        <div class="modal-contatos-lista">
+          ${formatarContato(inst.contato, true)}
+        </div>
+      </div>
+    `;
+
+    overlay.classList.add('ativo');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-aberto');
+    document.getElementById('modal-fechar').focus();
+  }
+
+  function fecharModal() {
+    const overlay = document.getElementById('modal-overlay');
+    overlay.classList.remove('ativo');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-aberto');
+  }
+
+  function initModal() {
+    const overlay = document.getElementById('modal-overlay');
+    const fechar = document.getElementById('modal-fechar');
+
+    fechar.addEventListener('click', fecharModal);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) fecharModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('ativo')) fecharModal();
+    });
+  }
+
+  function vincularCards() {
+    document.querySelectorAll('.instituicao-card').forEach(card => {
+      const id = parseInt(card.dataset.instId, 10);
+      const dados = instituicoesIndex[id];
+      if (!dados) return;
+
+      const abrir = (e) => {
+        if (e.target.closest('a')) return;
+        abrirModal(dados.inst, dados.cat);
+      };
+
+      card.addEventListener('click', abrir);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          abrir(e);
+        }
+      });
+    });
+  }
+
+  function buildInstituicoesIndex() {
+    instituicoesIndex = [];
+    let id = 0;
+    REDE_DATA.categorias.forEach(cat => {
+      cat.instituicoes.forEach(inst => {
+        instituicoesIndex.push({ inst, cat, id });
+        id++;
+      });
+    });
   }
 
   /* ── Renderização do cabeçalho ── */
@@ -88,6 +234,56 @@
       <h1>${REDE_DATA.titulo}</h1>
       <p class="subtitulo">${totalInst} órgãos e instituições – guia rápido de atendimento</p>
     `;
+  }
+
+  /* ── Navegação rápida mobile ── */
+  function renderizarNavMobile() {
+    let nav = document.getElementById('nav-categorias');
+    if (!isMobile()) {
+      if (nav) nav.remove();
+      return;
+    }
+
+    if (!nav) {
+      nav = document.createElement('nav');
+      nav.id = 'nav-categorias';
+      nav.className = 'nav-categorias';
+      nav.setAttribute('aria-label', 'Ir para categoria');
+      document.querySelector('.page-header').after(nav);
+    }
+
+    nav.innerHTML = `
+      <div class="nav-categorias-inner">
+        ${REDE_DATA.categorias.map(cat => `
+          <a href="#cat-${cat.id}" class="nav-cat-chip" data-cat-id="${cat.id}" style="--chip-cor: ${cat.cor}">
+            <span>${cat.icone}</span> ${cat.id}
+          </a>
+        `).join('')}
+      </div>
+    `;
+
+    nav.querySelectorAll('.nav-cat-chip').forEach(chip => {
+      chip.addEventListener('click', (e) => {
+        const catId = chip.dataset.catId;
+        const secao = document.getElementById(`cat-${catId}`);
+        if (!secao) return;
+
+        const btn = secao.querySelector('.categoria-acordeao-btn');
+        const painel = secao.querySelector('.categoria-instituicoes');
+        if (btn && !btn.classList.contains('aberto')) {
+          e.preventDefault();
+          document.querySelectorAll('.categoria-acordeao-btn').forEach(b => {
+            b.classList.remove('aberto');
+            b.setAttribute('aria-expanded', 'false');
+          });
+          document.querySelectorAll('.categoria-instituicoes').forEach(p => p.classList.remove('aberto'));
+          btn.classList.add('aberto');
+          btn.setAttribute('aria-expanded', 'true');
+          painel.classList.add('aberto');
+          setTimeout(() => secao.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+        }
+      });
+    });
   }
 
   /* ── Renderização dos painéis informativos ── */
@@ -126,7 +322,7 @@
     const numCat = categorias.length;
 
     const largura = container.clientWidth || window.innerWidth;
-    const alturaBase = Math.max(700, largura * 0.75);
+    const alturaBase = Math.max(820, largura * 0.82);
     container.style.height = alturaBase + 'px';
     conteudo.style.height = alturaBase + 'px';
     svg.setAttribute('viewBox', `0 0 ${largura} ${alturaBase}`);
@@ -134,8 +330,8 @@
     const cx = largura / 2;
     const cy = alturaBase / 2;
 
-    const raioCategoria = Math.min(largura, alturaBase) * 0.22;
-    const raioInstituicao = Math.min(largura, alturaBase) * 0.42;
+    const raioCategoria = Math.min(largura, alturaBase) * 0.24;
+    const raioInstituicao = Math.min(largura, alturaBase) * 0.44;
 
     hub.style.left = cx + 'px';
     hub.style.top = cy + 'px';
@@ -145,10 +341,11 @@
       <span class="coracao">❤️</span>
     `;
 
-    conteudo.querySelectorAll('.categoria-no, .instituicao-card').forEach(el => el.remove());
+    conteudo.querySelectorAll('.categoria-no, .instituicao-card, .decoracao-estrela').forEach(el => el.remove());
 
     let svgPaths = '';
     let seed = 0;
+    let instId = 0;
 
     const anguloInicio = -Math.PI / 2;
     const anguloPasso = (2 * Math.PI) / numCat;
@@ -161,47 +358,41 @@
       noCat.className = 'categoria-no';
       noCat.style.left = posCat.x + 'px';
       noCat.style.top = posCat.y + 'px';
-      noCat.innerHTML = `
-        <div class="categoria-bolha" style="border-color: ${cat.cor}; background: ${cat.corClara || '#fff'}">
-          <span class="categoria-numero" style="color: ${cat.cor}">${cat.id}</span>
-          <span class="categoria-icone">${cat.icone}</span>
-          <span class="categoria-nome" style="color: ${cat.cor}">${cat.nome}</span>
-        </div>
-      `;
+      noCat.innerHTML = criarBolhaCategoria(cat);
       conteudo.appendChild(noCat);
 
       svgPaths += gerarLinhaOrganica(cx, cy, posCat.x, posCat.y, cat.cor, 4, seed++);
 
       const numInst = cat.instituicoes.length;
       const spreadAngulo = Math.min(0.55, 0.15 * numInst + 0.1);
-      const anguloBaseInst = anguloCat;
 
       cat.instituicoes.forEach((inst, instIndex) => {
         let anguloInst;
         if (numInst === 1) {
-          anguloInst = anguloBaseInst;
+          anguloInst = anguloCat;
         } else {
           const offset = (instIndex - (numInst - 1) / 2) * (spreadAngulo / Math.max(numInst - 1, 1));
-          anguloInst = anguloBaseInst + offset;
+          anguloInst = anguloCat + offset;
         }
 
-        const raioInst = raioInstituicao + (instIndex % 2) * 25;
+        const raioInst = raioInstituicao + (instIndex % 2) * 30;
         const posInst = polarParaCartesiano(cx, cy, raioInst, anguloInst);
 
         const cardWrapper = document.createElement('div');
-        cardWrapper.innerHTML = criarCardHTML(inst, cat.cor);
+        cardWrapper.innerHTML = criarCardHTML(inst, cat.cor, cat.nome, instId);
         const card = cardWrapper.firstElementChild;
         card.style.left = posInst.x + 'px';
         card.style.top = posInst.y + 'px';
         conteudo.appendChild(card);
 
         svgPaths += gerarLinhaOrganica(posCat.x, posCat.y, posInst.x, posInst.y, cat.cor, 2.5, seed++);
+        instId++;
       });
     });
 
     svg.innerHTML = svgPaths;
-
     decorarEstrelas(conteudo, largura, alturaBase);
+    vincularCards();
   }
 
   function decorarEstrelas(container, w, h) {
@@ -225,7 +416,7 @@
     });
   }
 
-  /* ── Layout mobile (empilhado) ── */
+  /* ── Layout mobile (acordeão) ── */
   function renderizarMapaMobile() {
     const container = document.getElementById('mapa-container');
     const conteudo = document.getElementById('mapa-conteudo');
@@ -244,25 +435,52 @@
 
     conteudo.querySelectorAll('.categoria-no, .instituicao-card, .decoracao-estrela').forEach(el => el.remove());
 
-    REDE_DATA.categorias.forEach(cat => {
+    let instId = 0;
+
+    REDE_DATA.categorias.forEach((cat, index) => {
       const noCat = document.createElement('div');
-      noCat.className = 'categoria-no';
+      noCat.className = 'categoria-no categoria-acordeao';
+      noCat.id = `cat-${cat.id}`;
+
+      const aberto = index === 0 ? ' aberto' : '';
       noCat.innerHTML = `
-        <div class="categoria-bolha" style="border-color: ${cat.cor}; background: ${cat.corClara || '#fff'}">
-          <span class="categoria-numero" style="color: ${cat.cor}">${cat.id}</span>
-          <span class="categoria-icone">${cat.icone}</span>
-          <span class="categoria-nome" style="color: ${cat.cor}">${cat.nome}</span>
-        </div>
-        <div class="categoria-instituicoes" style="border-color: ${cat.cor}">
-          ${cat.instituicoes.map(inst => criarCardHTML(inst, cat.cor)).join('')}
+        <button class="categoria-acordeao-btn${aberto}" type="button" aria-expanded="${index === 0}" style="--cat-cor: ${cat.cor}; --cat-cor-clara: ${cat.corClara}">
+          ${criarBolhaCategoria(cat)}
+          <span class="acordeao-seta" aria-hidden="true">▼</span>
+        </button>
+        <div class="categoria-instituicoes${aberto}" style="--cat-cor: ${cat.cor}">
+          ${cat.instituicoes.map(inst => criarCardHTML(inst, cat.cor, cat.nome, instId++)).join('')}
         </div>
       `;
+
+      const btn = noCat.querySelector('.categoria-acordeao-btn');
+      const painel = noCat.querySelector('.categoria-instituicoes');
+
+      btn.addEventListener('click', () => {
+        const estaAberto = btn.classList.contains('aberto');
+        document.querySelectorAll('.categoria-acordeao-btn').forEach(b => {
+          b.classList.remove('aberto');
+          b.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('.categoria-instituicoes').forEach(p => p.classList.remove('aberto'));
+
+        if (!estaAberto) {
+          btn.classList.add('aberto');
+          btn.setAttribute('aria-expanded', 'true');
+          painel.classList.add('aberto');
+        }
+      });
+
       conteudo.appendChild(noCat);
     });
+
+    vincularCards();
   }
 
   function renderizar() {
+    buildInstituicoesIndex();
     renderizarHeader();
+    renderizarNavMobile();
     renderizarPainéis();
     if (isMobile()) {
       renderizarMapaMobile();
@@ -274,8 +492,10 @@
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(renderizar, 200);
+    resizeTimer = setTimeout(renderizar, 250);
   });
+
+  initModal();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', renderizar);
