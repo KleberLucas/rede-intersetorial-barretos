@@ -376,8 +376,8 @@
     conteudo.style.height = alturaBase + 'px';
     svg.setAttribute('viewBox', `0 0 ${largura} ${alturaBase}`);
 
-    const margemTopo = 130;
-    const margemLateral = 140;
+    const margemTopo = 150;
+    const margemLateral = 160;
     const cx = largura / 2;
     const cy = alturaBase / 2 + 40;
 

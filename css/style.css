@@ -949,13 +949,151 @@ body.modal-aberto {
 
 @media (min-width: 769px) and (max-width: 1100px) {
   .categoria-bolha {
-    width: clamp(190px, 20vw, 230px);
-    min-height: clamp(115px, 14vw, 140px);
-    padding: 1rem 1.1rem 1.1rem;
+    width: clamp(210px, 22vw, 250px);
+    min-height: clamp(130px, 15vw, 160px);
+    padding: 1.1rem 1.2rem 1.2rem;
   }
 
   .categoria-nome {
-    font-size: clamp(0.82rem, 1.4vw, 0.95rem);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+  }
+
+  .instituicao-card {
+    width: clamp(230px, 24vw, 280px);
+  }
+}
+
+/* ===== Desktop / projetor — tipografia ampliada ===== */
+@media (min-width: 769px) {
+  .page-header h1 {
+    font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  }
+
+  .page-header .subtitulo {
+    font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  }
+
+  .hub-central {
+    width: clamp(200px, 20vw, 270px);
+    height: clamp(200px, 20vw, 270px);
+    padding: 1.2rem;
+  }
+
+  .hub-central h2 {
+    font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  }
+
+  .hub-central p {
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  }
+
+  .hub-central .coracao {
+    font-size: 1.45rem;
+  }
+
+  .categoria-bolha {
+    width: clamp(230px, 18vw, 300px);
+    min-height: clamp(140px, 14vw, 175px);
+    padding: 1.25rem 1.4rem 1.35rem;
+  }
+
+  .categoria-numero {
+    font-size: clamp(1.55rem, 2.2vw, 1.95rem);
+  }
+
+  .categoria-icone {
+    font-size: clamp(1.7rem, 2.4vw, 2.15rem);
+  }
+
+  .categoria-nome {
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    line-height: 1.35;
+  }
+
+  .instituicao-card {
+    width: clamp(250px, 23vw, 310px);
+  }
+
+  .card-inner {
+    padding: 0.9rem 1rem 1.85rem 3.2rem;
+  }
+
+  .card-icone-inst {
+    font-size: 2rem;
+    left: 0.65rem;
+  }
+
+  .card-titulo {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    margin-bottom: 0.45rem;
+  }
+
+  .card-topicos {
+    font-size: clamp(0.95rem, 1.35vw, 1.12rem);
+    line-height: 1.4;
+  }
+
+  .card-contato {
+    font-size: clamp(0.9rem, 1.25vw, 1.05rem);
+  }
+
+  .card-tipo-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .card-ver-mais {
+    font-size: 0.85rem;
+  }
+
+  .info-box h3 {
+    font-size: 1.4rem;
+  }
+
+  .legenda-lista li,
+  .como-usar-lista li {
+    font-size: 1.15rem;
+  }
+
+  .modal {
+    max-width: 600px;
+  }
+
+  .modal-header h2 {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+  }
+
+  .modal-categoria {
+    font-size: 1rem;
+  }
+
+  .modal-descricao {
+    font-size: 1.15rem;
+  }
+
+  .modal-secao h3 {
+    font-size: 1.25rem;
+  }
+
+  .modal-lista li {
+    font-size: 1.1rem;
+  }
+
+  .modal-info-item strong {
+    font-size: 1.05rem;
+  }
+
+  .modal-info-item p {
+    font-size: 1.08rem;
+  }
+
+  .modal-contato-item {
+    font-size: 1.15rem;
+  }
+
+  .rodape p {
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
   }
 }
 
