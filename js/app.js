@@ -371,16 +371,25 @@
     const numCat = categorias.length;
 
     const largura = container.clientWidth || window.innerWidth;
-    const alturaBase = Math.max(820, largura * 0.82);
+    const alturaBase = Math.max(960, largura * 0.88);
     container.style.height = alturaBase + 'px';
     conteudo.style.height = alturaBase + 'px';
     svg.setAttribute('viewBox', `0 0 ${largura} ${alturaBase}`);
 
+    const margemTopo = 130;
+    const margemLateral = 140;
     const cx = largura / 2;
-    const cy = alturaBase / 2;
+    const cy = alturaBase / 2 + 40;
 
-    const raioCategoria = Math.min(largura, alturaBase) * 0.24;
-    const raioInstituicao = Math.min(largura, alturaBase) * 0.44;
+    const raioCategoria = Math.min(largura, alturaBase) * 0.22;
+    const raioInstituicao = Math.min(largura, alturaBase) * 0.40;
+
+    function limitarPosicao(x, y, halfW, halfH) {
+      return {
+        x: Math.min(largura - halfW, Math.max(halfW, x)),
+        y: Math.min(alturaBase - halfH, Math.max(margemTopo, y))
+      };
+    }
 
     hub.style.left = cx + 'px';
     hub.style.top = cy + 'px';
@@ -401,7 +410,8 @@
 
     categorias.forEach((cat, catIndex) => {
       const anguloCat = anguloInicio + catIndex * anguloPasso;
-      const posCat = polarParaCartesiano(cx, cy, raioCategoria, anguloCat);
+      let posCat = polarParaCartesiano(cx, cy, raioCategoria, anguloCat);
+      posCat = limitarPosicao(posCat.x, posCat.y, margemLateral * 0.7, 80);
 
       const noCat = document.createElement('div');
       noCat.className = 'categoria-no';
@@ -413,7 +423,7 @@
       svgPaths += gerarLinhaOrganica(cx, cy, posCat.x, posCat.y, cat.cor, 4, seed++);
 
       const numInst = cat.instituicoes.length;
-      const spreadAngulo = Math.min(0.55, 0.15 * numInst + 0.1);
+      const spreadAngulo = Math.min(0.5, 0.14 * numInst + 0.08);
 
       cat.instituicoes.forEach((inst, instIndex) => {
         let anguloInst;
@@ -424,8 +434,12 @@
           anguloInst = anguloCat + offset;
         }
 
-        const raioInst = raioInstituicao + (instIndex % 2) * 30;
-        const posInst = polarParaCartesiano(cx, cy, raioInst, anguloInst);
+        // No hemisfério superior, evita empurrar o card ainda mais para cima
+        const noTopo = Math.sin(anguloInst) < -0.35;
+        const extraRaio = noTopo ? 0 : (instIndex % 2) * 24;
+        const raioInst = raioInstituicao + extraRaio;
+        let posInst = polarParaCartesiano(cx, cy, raioInst, anguloInst);
+        posInst = limitarPosicao(posInst.x, posInst.y, margemLateral, margemTopo);
 
         const cardWrapper = document.createElement('div');
         cardWrapper.innerHTML = criarCardHTML(inst, cat.cor, cat.nome, instId);
