@@ -165,6 +165,41 @@ const REDE_DATA = {
             articulacao: "Secretarias de Saúde e Assistência Social, CRAS, CREAS, conselhos de direitos, Conselho Tutelar, entidades sociais, Defensoria Pública, Promotoria e equipe técnica do Fórum.",
             observacao: "Contatos informados pela apresentação institucional: (17) 3612-2221 e Kelly (17) 99124-8630."
           }
+        },
+        {
+          nome: "Projeto Conviva SP — Barretos",
+          topicos: [
+            "convivência e proteção escolar",
+            "escolas estaduais e famílias",
+            "cultura de paz e prevenção"
+          ],
+          contato: {
+            telefone: "(17) 3321-0110",
+            telefone2: "(17) 3321-1165",
+            email: "debat@educacao.sp.gov.br",
+            email2: "bat.eec@educacao.sp.gov.br"
+          },
+          tipo: "procura",
+          icone: "🕊️",
+          detalhes: {
+            descricao: "O Conviva SP (Programa de Melhoria da Convivência e Proteção Escolar) é uma iniciativa da Secretaria da Educação do Estado de São Paulo, criada em 2019. Busca transformar as escolas estaduais em ambientes mais solidários, colaborativos, acolhedores e seguros, entendendo que a qualidade da convivência influencia a permanência, o bem-estar e a aprendizagem dos estudantes.",
+            endereco: "Unidade Regional de Ensino de Barretos — Avenida Coronel Silvestre de Lima, 475, bairro Nogueira, Barretos/SP — CEP 14783-282",
+            horario: "",
+            publicoAlvo: "Comunidade das escolas estaduais: estudantes do Ensino Fundamental e Médio, familiares, professores, servidores, equipes gestoras, grêmios estudantis e profissionais da rede de proteção. Em Barretos, ligado às escolas da Unidade Regional de Ensino e municípios da abrangência regional.",
+            servicos: [
+              "Ações de clima e convivência escolar — rodas de conversa, práticas restaurativas, mediação de conflitos e cultura de paz",
+              "Professor Orientador de Convivência (POC) — identificação de estudantes, mediação, busca ativa e articulação com a rede",
+              "Apoio psicológico e psicossocial preventivo (Programa Psicólogos nas Escolas)",
+              "Orientação em proteção e segurança escolar — violência, bullying, cyberbullying, discriminação e violação de direitos",
+              "Registro e acompanhamento de ocorrências na Plataforma Conviva",
+              "Prevenção de abandono, ausência prolongada e dificuldades de permanência",
+              "Aproximação das famílias da vida escolar"
+            ],
+            acesso: "Para situações de um estudante específico, a porta de entrada é a equipe gestora da escola estadual em que o aluno está matriculado (direção, vice-direção, Coordenador de Organização Escolar, POC, professor ou coordenador pedagógico). A escola acolhe e define encaminhamentos, podendo acionar a Unidade Regional de Ensino ou a rede protetiva. O Conviva SP não substitui Conselho Tutelar, CAPS, CRAS, CREAS, polícia ou atendimento médico.",
+            articulacao: "Conselho Tutelar; UBS e saúde mental; CRAS e CREAS; Polícia Militar e Civil; Ministério Público e Poder Judiciário; organizações sociais; famílias, comunidade e grêmios estudantis.",
+            responsaveis: "Emerson Lemes da Costa — Professor Especialista em Currículo do Conviva (área regional)",
+            observacao: "Contatos regionais: URE (17) 3321-0110 / debat@educacao.sp.gov.br; Equipe de Especialistas (17) 3321-1165 / bat.eec@educacao.sp.gov.br. Contato estadual: convivasp@educacao.sp.gov.br. Use os canais regionais para orientação institucional; para o aluno, procure primeiro a escola."
+          }
         }
       ]
     },
