@@ -6,7 +6,7 @@
 }
 
 :root {
-  color-scheme: light only;
+  color-scheme: only light;
   --cor-hub: #c1121f;
   --cor-hub-clara: #fff0f1;
   --cor-texto: #2b2b2b;
@@ -25,8 +25,22 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light only;
+  color-scheme: only light;
   background-color: var(--cor-papel);
+}
+
+/*
+  Contorno do Force Dark do Android:
+  o navegador escurece a página; detectamos via JS e revertemos com filtro.
+*/
+html.anti-force-dark {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.anti-force-dark img,
+html.anti-force-dark video,
+html.anti-force-dark iframe {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 body {
@@ -1134,6 +1148,11 @@ body.modal-aberto {
 
 /* Impede o "modo escuro automático" de navegadores nativos (Android/Samsung) */
 @media (prefers-color-scheme: dark) {
+  :root,
+  html {
+    color-scheme: only light;
+  }
+
   html,
   body,
   .paper-bg {
@@ -1141,21 +1160,9 @@ body.modal-aberto {
     color: #2b2b2b !important;
   }
 
-  body {
-    background-image: var(--papel-padrao) !important;
-  }
-
+  body,
   .paper-bg {
     background-image: var(--papel-padrao) !important;
-  }
-
-  .page-header h1,
-  .page-header .subtitulo,
-  .card-titulo,
-  .card-topicos,
-  .modal-header h2,
-  .modal-descricao {
-    color: inherit;
   }
 
   .card-inner,
@@ -1163,5 +1170,14 @@ body.modal-aberto {
   .modal,
   .nav-cat-chip {
     background-color: #ffffff !important;
+    color: #2b2b2b !important;
+  }
+
+  .page-header h1 {
+    color: #2b2b2b !important;
+  }
+
+  .page-header .subtitulo {
+    color: #555555 !important;
   }
 }

@@ -550,6 +550,10 @@
     } else {
       renderizarMapaDesktop();
     }
+    if (typeof window.corrigirForceDark === 'function') {
+      window.corrigirForceDark();
+      setTimeout(window.corrigirForceDark, 100);
+    }
   }
 
   let resizeTimer;

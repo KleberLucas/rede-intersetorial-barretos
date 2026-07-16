@@ -3,14 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light only">
+  <meta name="color-scheme" content="only light">
   <meta name="supported-color-schemes" content="light">
-  <meta name="theme-color" content="#faf8f3">
+  <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: dark)">
   <title>Rede Intersetorial de Barretos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Patrick+Hand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    /* Contorna o "Force Dark" de navegadores Android que ignoram color-scheme */
+    (function () {
+      function luminancia(cor) {
+        var m = String(cor).match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+        if (!m) return 1;
+        return (0.2126 * +m[1] + 0.7152 * +m[2] + 0.0722 * +m[3]) / 255;
+      }
+
+      function detectarForceDark() {
+        var probe = document.createElement('div');
+        probe.setAttribute(
+          'style',
+          'position:fixed;left:-9999px;top:0;width:48px;height:48px;' +
+          'background-color:#ffffff !important;color:#111111 !important;' +
+          'border:0;padding:0;margin:0;'
+        );
+        (document.body || document.documentElement).appendChild(probe);
+        var bg = getComputedStyle(probe).backgroundColor;
+        var fg = getComputedStyle(probe).color;
+        probe.remove();
+
+        var fundoEscuro = luminancia(bg) < 0.55;
+        var textoClaro = luminancia(fg) > 0.55;
+        /* Branco virou escuro e/ou preto virou claro = Force Dark ativo */
+        document.documentElement.classList.toggle('anti-force-dark', fundoEscuro || textoClaro);
+      }
+
+      function rodar() {
+        detectarForceDark();
+        requestAnimationFrame(function () {
+          setTimeout(detectarForceDark, 40);
+          setTimeout(detectarForceDark, 200);
+          setTimeout(detectarForceDark, 600);
+        });
+      }
+
+      window.corrigirForceDark = detectarForceDark;
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', rodar);
+      } else {
+        rodar();
+      }
+    })();
+  </script>
 </head>
 <body>
   <div class="paper-bg" aria-hidden="true"></div>
