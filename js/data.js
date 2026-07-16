@@ -1,6 +1,7 @@
 /**
  * Dados da Rede Intersetorial de Barretos.
  * Edite este objeto para adicionar, remover ou alterar categorias e instituições.
+ * Fonte: materiais do Encontro da Rede Intersetorial.
  */
 const REDE_DATA = {
   titulo: "Rede Intersetorial de Barretos",
@@ -17,7 +18,7 @@ const REDE_DATA = {
   comoUsar: [
     "Identifique a categoria que melhor se encaixa na sua necessidade.",
     "Toque ou clique em um órgão para ver informações completas.",
-    "Em caso de dúvida, ligue para qualquer instituição da rede."
+    "Em caso de dúvida, entre em contato com o serviço indicado ou com a rede."
   ],
   categorias: [
     {
@@ -28,82 +29,55 @@ const REDE_DATA = {
       icone: "🤝",
       instituicoes: [
         {
-          nome: "Casa Abrigo Acolher Mais",
+          nome: "APAE Barretos",
           topicos: [
-            "famílias em situação de vulnerabilidade",
-            "crianças e adolescentes",
-            "encaminhamento para rede"
+            "pessoas com deficiência de 12 a 70 anos",
+            "proteção social especial e educação",
+            "atendimento ambulatorial especializado"
           ],
-          contato: {
-            telefone: "(17) 3310-4101",
-            email: "acolhermais@barretos.sp.gov.br",
-            site: "www.acolhermais-barretos.org.br"
-          },
+          contato: {},
           tipo: "encaminhamento",
-          icone: "🏠",
+          icone: "🧡",
           detalhes: {
-            descricao: "Serviço de acolhimento institucional voltado a famílias e crianças em situação de risco social, com acompanhamento integral e articulação com a rede municipal.",
-            endereco: "Rua das Acácias, 245 – Centro, Barretos/SP",
-            horario: "Segunda a sexta, das 8h às 17h",
-            publicoAlvo: "Famílias, crianças e adolescentes em vulnerabilidade social",
+            descricao: "A Associação de Pais e Amigos dos Excepcionais de Barretos é uma organização da sociedade civil articulada com as Secretarias Municipais de Assistência Social e Desenvolvimento Humano, Educação e Saúde, além da Secretaria de Estado da Educação. Executa o Serviço de Proteção Social Especial para Pessoas com Deficiência, Pessoas Idosas e suas Famílias, somado a ações educacionais e atendimento ambulatorial especializado.",
+            endereco: "",
+            horario: "",
+            publicoAlvo: "Pessoas de 12 a 70 anos com deficiência intelectual, física ou ambas, e suas famílias — atendimento em todo o município de Barretos",
             servicos: [
-              "Acolhimento temporário",
-              "Acompanhamento familiar",
-              "Encaminhamento para CRAS e CREAS",
-              "Orientação sobre benefícios sociais"
-            ]
+              "Projeto Ser e Crescer — adolescentes de 12 a 18 anos incompletos",
+              "Projeto Bem Querer — proteção social especial para pessoas com deficiência, pessoas idosas e suas famílias",
+              "Projeto Oportunidade Gera Possibilidade — proteção social especial de média complexidade",
+              "Educação de Jovens e Adultos — EJA",
+              "Educação especializada",
+              "Atendimento ambulatorial para pessoas com deficiência"
+            ],
+            acesso: "Por encaminhamento da Secretaria Municipal de Assistência Social e Desenvolvimento Humano (CRAS e CREAS) ou pela Secretaria Municipal de Saúde.",
+            articulacao: "CRAS, CREAS, Secretaria Municipal de Saúde, Secretaria Municipal de Educação e Secretaria de Estado da Educação."
           }
         },
         {
-          nome: "Centro Dia Esperança",
+          nome: "ABAVIN — Associação Barretense Vida Nova",
           topicos: [
-            "idosos em vulnerabilidade",
-            "acompanhamento social",
-            "atividades coletivas"
+            "inclusão social e suporte biopsicossocial",
+            "pessoas com deficiência, idosos e famílias",
+            "crianças e adolescentes com deficiência"
           ],
-          contato: {
-            telefone: "(17) 3310-4102",
-            email: "esperanca@barretos.sp.gov.br"
-          },
+          contato: {},
           tipo: "procura",
-          icone: "👴",
+          icone: "🌈",
           detalhes: {
-            descricao: "Espaço de convivência e cuidado diurno para idosos, promovendo autonomia, saúde e integração social por meio de atividades culturais e de lazer.",
-            endereco: "Av. 43, 1120 – Herculano Candeia, Barretos/SP",
-            horario: "Segunda a sexta, das 7h30 às 16h30",
-            publicoAlvo: "Idosos a partir de 60 anos em situação de vulnerabilidade",
+            descricao: "A ABAVIN atua em parceria com a Secretaria de Assistência Social e Desenvolvimento Humano e com a Secretaria Municipal de Educação. Promove a inclusão social de pessoas com deficiência, pessoas idosas e suas famílias, bem como de crianças e adolescentes com deficiência ou transtornos de aprendizagem, com suporte de equipe multidisciplinar.",
+            endereco: "Sede na região central — referência inicial nos territórios I e IV; atuação em todo o município",
+            horario: "",
+            publicoAlvo: "Crianças e adolescentes com deficiência intelectual; pessoas com deficiência, pessoas idosas e suas famílias; crianças da rede municipal com transtornos ou dificuldades de aprendizagem",
             servicos: [
-              "Atividades físicas e recreativas",
-              "Refeições balanceadas",
-              "Acompanhamento social e de saúde",
-              "Oficinas de artesanato e memória"
-            ]
-          }
-        },
-        {
-          nome: "Núcleo Acolher Família",
-          topicos: [
-            "orientação social",
-            "benefícios e cadastros",
-            "acompanhamento familiar"
-          ],
-          contato: {
-            telefone: "(17) 3310-4103",
-            site: "www.nucleoacolher.org.br"
-          },
-          tipo: "procura",
-          icone: "👨‍👩‍👧",
-          detalhes: {
-            descricao: "Núcleo de referência para orientação social, cadastramento em programas públicos e acompanhamento de famílias em busca de proteção social.",
-            endereco: "Rua 24, 380 – América, Barretos/SP",
-            horario: "Segunda a sexta, das 8h às 18h | Sábado, das 8h às 12h",
-            publicoAlvo: "Famílias da comunidade em geral",
-            servicos: [
-              "Cadastro Único e Bolsa Família",
-              "Orientação sobre direitos sociais",
-              "Visitas domiciliares",
-              "Grupos de apoio a pais e mães"
-            ]
+              "Arco-Íris Social — atendimento a pessoas com deficiência, pessoas idosas e familiares",
+              "Despertando Talentos — crianças e adolescentes com deficiência intelectual",
+              "Dedinho de Prosa — atendimento e convivência para pessoas idosas",
+              "Redescobrindo o Aprender — crianças da rede municipal com dificuldades de aprendizagem"
+            ],
+            acesso: "Por encaminhamento do CRAS, CREAS ou Fórum, além de busca espontânea.",
+            articulacao: "Secretaria da Cultura, Conselho Tutelar, Secretaria da Saúde, organizações não governamentais e outros serviços municipais."
           }
         }
       ]
@@ -116,82 +90,65 @@ const REDE_DATA = {
       icone: "📚",
       instituicoes: [
         {
-          nome: "Projeto Futuro Jovem",
+          nome: "Senac Barretos",
           topicos: [
-            "orientação profissional",
-            "cursos e oficinas",
-            "parcerias com empresas"
+            "educação profissional e bolsas de estudo",
+            "aprendizagem e empregabilidade",
+            "cultura, bem-estar e inclusão"
           ],
-          contato: {
-            telefone: "(17) 3310-4201",
-            email: "futurojovem@barretos.sp.gov.br",
-            site: "www.futurojovem-barretos.org.br"
-          },
-          tipo: "rede",
+          contato: {},
+          tipo: "procura",
           icone: "🎓",
           detalhes: {
-            descricao: "Projeto de qualificação profissional e inserção no mercado de trabalho para jovens, com cursos, estágios e parcerias com o setor produtivo local.",
-            endereco: "Rua 15, 890 – Centro, Barretos/SP",
-            horario: "Segunda a sexta, das 9h às 18h",
-            publicoAlvo: "Jovens de 16 a 29 anos",
+            descricao: "O Senac Barretos atua nas áreas de educação profissional, inclusão, cultura, bem-estar, empregabilidade e atendimento à comunidade e às empresas. Oferece cursos, serviços, eventos e parcerias institucionais abertas à população.",
+            endereco: "",
+            horario: "",
+            publicoAlvo: "Estudantes, jovens aprendizes, trabalhadores, comunidade em geral, empresas, órgãos públicos e organizações sociais",
             servicos: [
-              "Cursos de informática e comunicação",
-              "Oficinas de empreendedorismo",
-              "Feiras de emprego",
-              "Mentoria profissional"
-            ]
+              "Bolsas de estudo 100% gratuitas para cursos técnicos e cursos livres",
+              "Agendamento de serviços de bem-estar e beleza",
+              "Programa de Aprendizagem gratuito",
+              "Atendimento corporativo com soluções educacionais customizadas",
+              "Biblioteca aberta à população",
+              "Cessão de espaços e professores para palestras",
+              "Ações de acessibilidade (totem de Libras, equipamentos e intérprete)",
+              "Eventos como Semana Geek, Casa Aberta e Jornada de Inclusão e Diversidade"
+            ],
+            acesso: "Inscrição em cursos e bolsas, agendamento de serviços, participação em eventos ou formalização de parcerias institucionais.",
+            articulacao: "Parcerias com Fundação CASA e CREAS; participação em comitês de Convivência Escolar, Cultura de Paz, Ecos, Empreendedorismo, Inovação e Voluntariado."
           }
         },
         {
-          nome: "Espaço Crescer e Aprender",
+          nome: "Setor de Inclusão — SME",
           topicos: [
-            "alfabetização de jovens e adultos",
-            "reforço escolar",
-            "atividades educativas"
+            "educação inclusiva na rede municipal",
+            "alunos de 0 a 16 anos e famílias",
+            "AEE, Braille e intérpretes de Libras"
           ],
           contato: {
-            telefone: "(17) 3310-4202",
-            email: "crescer@barretos.sp.gov.br"
+            telefone: "(17) 3612-2221",
+            telefone2: "(17) 99124-8630"
           },
           tipo: "procura",
-          icone: "✏️",
+          icone: "♿",
           detalhes: {
-            descricao: "Centro educacional comunitário que oferece alfabetização, reforço escolar e atividades culturais para crianças, jovens e adultos.",
-            endereco: "Rua 7, 456 – Exposição, Barretos/SP",
-            horario: "Segunda a sexta, das 13h às 21h",
-            publicoAlvo: "Crianças, jovens e adultos em busca de educação",
+            descricao: "O Setor de Inclusão da Secretaria Municipal de Educação coordena e acompanha as ações de educação inclusiva na rede municipal de ensino. Monitora alunos do público-alvo da Educação Especial Inclusiva, forma profissionais especializados e articula convênios e encaminhamentos com a rede.",
+            endereco: "",
+            horario: "",
+            publicoAlvo: "Alunos de 0 a 16 anos matriculados na rede municipal; escolas e profissionais da educação; familiares de alunos com deficiência, transtornos ou dificuldades de aprendizagem — município e zona rural",
             servicos: [
-              "Alfabetização de jovens e adultos",
-              "Reforço escolar gratuito",
-              "Biblioteca comunitária",
-              "Oficinas de leitura e artes"
-            ]
-          }
-        },
-        {
-          nome: "Centro Esportivo Comunidade",
-          topicos: [
-            "esportes e lazer",
-            "integração social",
-            "atividades para crianças e jovens"
-          ],
-          contato: {
-            telefone: "(17) 3310-4203",
-            site: "www.centroesportivo-barretos.org.br"
-          },
-          tipo: "rede",
-          icone: "⚽",
-          detalhes: {
-            descricao: "Espaço esportivo aberto à comunidade com modalidades variadas, promovendo saúde, lazer e integração social entre crianças e jovens.",
-            endereco: "Av. Eng. Necker Câmara, 1500 – Zequinha Amêndola, Barretos/SP",
-            horario: "Terça a domingo, das 8h às 20h",
-            publicoAlvo: "Crianças, adolescentes e jovens de 6 a 24 anos",
-            servicos: [
-              "Futebol, vôlei e basquete",
-              "Natação e hidroginástica",
-              "Judô e capoeira",
-              "Eventos esportivos comunitários"
-            ]
+              "Coordenação da educação inclusiva nas escolas municipais",
+              "Monitoramento de alunos da Educação Especial Inclusiva",
+              "Formação e acompanhamento de profissionais especializados",
+              "Monitoramento de convênios com organizações de terapias",
+              "Acompanhamento de psicodiagnósticos",
+              "Disponibilização de apoio, Braille, AEE e intérpretes de Libras",
+              "Encaminhamentos para saúde, neurologia, psiquiatria, fono e psicologia",
+              "Articulação com serviços conveniados como ABAVIN e AMA"
+            ],
+            acesso: "Encaminhamento pelas escolas municipais, procura direta das famílias ou encaminhamento por profissionais da saúde.",
+            articulacao: "Secretarias de Saúde e Assistência Social, CRAS, CREAS, conselhos de direitos, Conselho Tutelar, entidades sociais, Defensoria Pública, Promotoria e equipe técnica do Fórum.",
+            observacao: "Contatos: Setor de Inclusão (17) 3612-2221; Kelly (17) 99124-8630. Confirme o número institucional antes de divulgar."
           }
         }
       ]
@@ -204,81 +161,86 @@ const REDE_DATA = {
       icone: "💚",
       instituicoes: [
         {
-          nome: "Núcleo Viver Livre",
+          nome: "Centro Municipal de Reabilitação",
           topicos: [
-            "adolescentes, adultos e famílias",
-            "prevenção e apoio",
-            "grupos de apoio"
+            "reabilitação física em todas as idades",
+            "fisioterapia, fono, TO e psicologia",
+            "ambulatórios e programas especiais"
           ],
-          contato: {
-            telefone: "(17) 3310-4301",
-            email: "viverlivre@barretos.sp.gov.br"
-          },
-          tipo: "procura",
-          icone: "🌿",
-          detalhes: {
-            descricao: "Núcleo de prevenção e apoio em saúde mental e dependências, com grupos terapêuticos e acompanhamento para adolescentes, adultos e famílias.",
-            endereco: "Rua 18, 670 – Centro, Barretos/SP",
-            horario: "Segunda a sexta, das 8h às 17h",
-            publicoAlvo: "Adolescentes, adultos e familiares",
-            servicos: [
-              "Grupos de apoio e prevenção",
-              "Acolhimento psicossocial",
-              "Palestras educativas",
-              "Encaminhamento para tratamento especializado"
-            ]
-          }
-        },
-        {
-          nome: "Casa de Acolhimento Renascer",
-          topicos: [
-            "mulheres em situação de risco",
-            "apoio psicossocial",
-            "acolhimento temporário"
-          ],
-          contato: {
-            telefone: "(17) 3310-4302",
-            email: "renascer@barretos.sp.gov.br",
-            site: "www.casarrenascer.org.br"
-          },
+          contato: {},
           tipo: "encaminhamento",
-          icone: "🌸",
+          icone: "🏥",
           detalhes: {
-            descricao: "Casa de acolhimento para mulheres em situação de violência doméstica, oferecendo proteção, apoio jurídico e reintegração social.",
-            endereco: "Endereço sigiloso – Barretos/SP",
-            horario: "Atendimento 24 horas via telefone",
-            publicoAlvo: "Mulheres vítimas de violência e seus filhos",
+            descricao: "Vinculado à Secretaria Municipal de Saúde, o CMR oferece reabilitação física e atendimentos especializados. Atende demandas de reabilitação física; não contempla, nesse fluxo, deficiência intelectual, TEA, transtorno de aprendizagem ou múltiplas deficiências como condição principal.",
+            endereco: "Via Conselheiro Antônio Prado, 1365 — Barretos/SP",
+            horario: "",
+            publicoAlvo: "Pessoas de todas as idades com necessidades de reabilitação física",
             servicos: [
-              "Acolhimento temporário seguro",
-              "Apoio psicológico e jurídico",
-              "Grupos de autoestima",
-              "Encaminhamento para rede de proteção"
-            ]
+              "Fisioterapia — ortopedia, neurologia, cardiorrespiratória, vestibular, desenvolvimento infantil e acupuntura",
+              "Fonoaudiologia — fala, linguagem, voz, audição, sucção, mastigação e deglutição",
+              "Psicologia — suporte a pacientes em reabilitação e cuidadores",
+              "Terapia ocupacional — terapia de mão, desenvolvimento neuromotor e processamento sensorial",
+              "Ambulatório de Curativos Especiais",
+              "Ambulatório de Alto Risco (0 a 2 anos)",
+              "Ambulatório de Dor Crônica (maiores de 18 anos)",
+              "Programa Melhor em Casa (AD2 e AD3)",
+              "Programa Sorrindo para o Futuro (CEMEIs)",
+              "Hidroginástica — população em geral, sem encaminhamento médico"
+            ],
+            acesso: "Reabilitação por encaminhamento médico pelo Sistema Assessor Público. Hidroginástica dispensa encaminhamento."
           }
         },
         {
-          nome: "Equipe Cuidar em Casa",
+          nome: "CAPS III",
           topicos: [
-            "visitas domiciliares",
-            "cuidados básicos de saúde",
-            "orientação familiar"
+            "transtornos mentais graves e persistentes",
+            "acolhimento 24 horas",
+            "reabilitação psicossocial"
           ],
-          contato: {
-            telefone: "(17) 3310-4303"
-          },
-          tipo: "rede",
-          icone: "🏡",
+          contato: {},
+          tipo: "procura",
+          icone: "🌙",
           detalhes: {
-            descricao: "Equipe multiprofissional que realiza visitas domiciliares para cuidados básicos de saúde e orientação a famílias com membros em vulnerabilidade.",
-            endereco: "Base: UBS Central – Rua 20, 500 – Centro, Barretos/SP",
-            horario: "Segunda a sexta, das 7h às 16h",
-            publicoAlvo: "Famílias com idosos, gestantes ou pessoas acamadas",
+            descricao: "O CAPS III integra a Secretaria Municipal de Saúde e realiza atendimento psiquiátrico e psicossocial a pessoas com transtornos mentais graves e persistentes que necessitam de cuidado intensivo, reabilitação psicossocial e apoio para reintegração comunitária. Possui atuação regional.",
+            endereco: "",
+            horario: "Acolhimento e escuta qualificada 24 horas",
+            publicoAlvo: "Pessoas com transtornos mentais graves e persistentes",
             servicos: [
-              "Visitas domiciliares regulares",
-              "Curativos e medicação",
-              "Orientação a cuidadores",
-              "Articulação com UBS e hospitais"
-            ]
+              "Acolhimento e escuta qualificada 24 horas",
+              "Acompanhamento terapêutico contínuo por Projeto Terapêutico Singular",
+              "Oficinas terapêuticas",
+              "Articulações com Cultura, Educação e Assistência Social"
+            ],
+            acesso: "Demanda espontânea por escuta qualificada ou encaminhamento pela Rede de Atenção Psicossocial — RAPS.",
+            articulacao: "Rede de Atenção Psicossocial; oficinas de teatro e música com Cultura, Educação e Assistência Social.",
+            responsaveis: "Ronaldo Araújo e Helena Cipriano"
+          }
+        },
+        {
+          nome: "Ambulatório de Saúde Mental",
+          topicos: [
+            "transtornos leves a moderados",
+            "psiquiatria e psicoterapia",
+            "atendimento infantil e dependência química"
+          ],
+          contato: {},
+          tipo: "encaminhamento",
+          icone: "🧠",
+          detalhes: {
+            descricao: "Integra a Secretaria Municipal de Saúde e atende pessoas com transtornos mentais de intensidade leve a moderada, incluindo ansiedade, depressão moderada, luto persistente e dificuldades emocionais específicas, além de atendimento infantil e relacionados à dependência química.",
+            endereco: "",
+            horario: "",
+            publicoAlvo: "Pessoas com transtornos mentais leves a moderados; crianças; pessoas em situação de dependência química — abrangência municipal",
+            servicos: [
+              "Consulta médica psiquiátrica",
+              "Atendimento psicoterapêutico",
+              "Grupos terapêuticos",
+              "Matriciamento de psiquiatria na Atenção Primária",
+              "Atendimento de psicólogos nas unidades de saúde"
+            ],
+            acesso: "Adultos e crianças: encaminhamento pela Atenção Primária à Saúde ou pelo CAPS. Dependência química: demanda espontânea, conforme o fluxo do serviço.",
+            articulacao: "Atenção Primária à Saúde e CAPS.",
+            responsaveis: "Camila Ávila — Ambulatório; Elissandra Araújo — interlocução de Saúde Mental"
           }
         }
       ]
@@ -291,82 +253,64 @@ const REDE_DATA = {
       icone: "⚖️",
       instituicoes: [
         {
-          nome: "Núcleo Direitos para Todos",
+          nome: "Delegacia de Defesa da Mulher",
           topicos: [
-            "orientação jurídica social",
-            "encaminhamentos",
-            "defesa de direitos"
+            "mulheres vítimas de violência",
+            "crianças e adolescentes",
+            "boletim de ocorrência e medidas protetivas"
           ],
           contato: {
-            telefone: "(17) 3310-4401",
-            email: "direitos@barretos.sp.gov.br",
-            site: "www.direitosparatodos.org.br"
-          },
-          tipo: "encaminhamento",
-          icone: "📋",
-          detalhes: {
-            descricao: "Núcleo de assistência jurídica gratuita para população em situação de vulnerabilidade, com orientação e encaminhamento para defensoria e promotoria.",
-            endereco: "Rua 22, 330 – Centro, Barretos/SP",
-            horario: "Segunda a sexta, das 9h às 16h",
-            publicoAlvo: "População de baixa renda e em situação de vulnerabilidade",
-            servicos: [
-              "Orientação jurídica gratuita",
-              "Auxílio em documentação",
-              "Encaminhamento à Defensoria Pública",
-              "Mediação de conflitos"
-            ]
-          }
-        },
-        {
-          nome: "Centro de Inclusão Acessível",
-          topicos: [
-            "pessoas com deficiência",
-            "inclusão social e digital",
-            "adaptações e orientação"
-          ],
-          contato: {
-            telefone: "(17) 3310-4402",
-            email: "inclusao@barretos.sp.gov.br"
+            telefone: "(17) 3612-2845",
+            telefone2: "(17) 3612-2846"
           },
           tipo: "procura",
-          icone: "♿",
+          icone: "🛡️",
           detalhes: {
-            descricao: "Centro dedicado à inclusão de pessoas com deficiência, oferecendo adaptações, tecnologia assistiva e atividades de integração social.",
-            endereco: "Av. 45, 780 – Cristiano de Carvalho, Barretos/SP",
-            horario: "Segunda a sexta, das 8h às 17h",
-            publicoAlvo: "Pessoas com deficiência e suas famílias",
+            descricao: "A DDM Barretos integra a Polícia Civil do Estado de São Paulo, vinculada à Secretaria de Segurança Pública, ao Deinter 3 — Ribeirão Preto e à Seccional de Barretos. Apura crimes, identifica autoria e esclarece as circunstâncias dos fatos envolvendo violência doméstica, familiar e sexual.",
+            endereco: "Rua Dezoito, 137, entre as avenidas 29 e 31 — Centro, Barretos/SP",
+            horario: "Dias úteis, das 8h às 18h",
+            publicoAlvo: "Mulheres vítimas de violência; crianças e adolescentes vítimas de crimes abrangidos pela unidade; casos de violência doméstica e crimes sexuais",
             servicos: [
-              "Avaliação e adaptação de equipamentos",
-              "Cursos de informática acessível",
-              "Oficinas de arte e esporte adaptado",
-              "Orientação sobre benefícios (BPC/LOAS)"
-            ]
+              "Triagem e orientação inicial de competência",
+              "Atendimento acolhedor",
+              "Registro de boletim de ocorrência",
+              "Solicitação de medidas protetivas de urgência",
+              "Oitiva de investigados e testemunhas",
+              "Demais procedimentos policiais de investigação"
+            ],
+            acesso: "Por procura direta ou encaminhamento.",
+            articulacao: "Secretaria de Assistência Social (especialmente o CRAM), Secretaria Municipal de Saúde e empresas privadas."
           }
         },
         {
-          nome: "Espaço Proteger Infância",
+          nome: "Casa dos Conselhos",
           topicos: [
-            "crianças e adolescentes",
-            "denúncias e apoio",
-            "proteção especial"
+            "controle social e participação democrática",
+            "oito conselhos municipais",
+            "articulação intersetorial"
           ],
-          contato: {
-            telefone: "(17) 3310-4403",
-            site: "www.protegerinfancia.org.br"
-          },
-          tipo: "encaminhamento",
-          icone: "🛡️",
+          contato: {},
+          tipo: "rede",
+          icone: "🏛️",
           detalhes: {
-            descricao: "Serviço especializado em proteção de crianças e adolescentes, com canal de denúncias, acolhimento e articulação com conselho tutelar e justiça.",
-            endereco: "Rua 16, 210 – Centro, Barretos/SP",
-            horario: "Segunda a sexta, das 8h às 18h | Plantão: (17) 3310-4499",
-            publicoAlvo: "Crianças, adolescentes e responsáveis",
+            descricao: "Vinculada à Secretaria Municipal de Assistência Social, a Casa dos Conselhos funciona como polo estratégico da rede socioassistencial. Oferece estrutura institucional para a articulação intersetorial, a participação democrática e o fortalecimento do controle social das políticas públicas.",
+            endereco: "",
+            horario: "",
+            publicoAlvo: "Conselhos, sociedade civil, usuários, trabalhadores e poder público",
             servicos: [
-              "Recebimento de denúncias",
-              "Acolhimento psicossocial",
-              "Encaminhamento ao Conselho Tutelar",
-              "Grupos de prevenção à violência"
-            ]
+              "CMAS — Conselho Municipal de Assistência Social",
+              "CMDCA — Conselho Municipal dos Direitos da Criança e do Adolescente",
+              "CMI — Conselho Municipal do Idoso",
+              "COMDIM — Conselho Municipal dos Direitos da Mulher",
+              "COMIR — Conselho Municipal de Igualdade Racial",
+              "CMJ — Conselho Municipal da Juventude",
+              "CMAPD — Conselho Municipal dos Direitos da Pessoa com Deficiência",
+              "COMAD — Conselho Municipal de Políticas sobre Drogas",
+              "Acompanhamento, monitoramento e fiscalização de políticas públicas",
+              "Articulação entre poder público, usuários e organizações sociais"
+            ],
+            acesso: "Participação por meio das reuniões, representações institucionais, processos de composição dos conselhos e contato com a Casa dos Conselhos.",
+            articulacao: "Poder público, sociedade civil e políticas públicas municipais."
           }
         }
       ]
@@ -379,82 +323,33 @@ const REDE_DATA = {
       icone: "💼",
       instituicoes: [
         {
-          nome: "Banco de Talentos Cidade",
+          nome: "PEI Barretos — Empregabilidade Inclusiva",
           topicos: [
-            "emprego e renda",
-            "cursos profissionalizantes",
-            "encaminhamento para trabalho"
+            "pessoas com deficiência a partir de 16 anos",
+            "emprego apoiado e empresas",
+            "capacitação e acompanhamento"
           ],
           contato: {
-            telefone: "(17) 3310-4501",
-            email: "talentos@barretos.sp.gov.br",
-            site: "www.bancotalentos-barretos.org.br"
+            telefone: "(11) 97266-9135",
+            email: "pei.barretos@itsbrasil.org.br"
           },
           tipo: "procura",
           icone: "💼",
           detalhes: {
-            descricao: "Agência de empregos e qualificação profissional que conecta trabalhadores a oportunidades no mercado formal e informal da região.",
-            endereco: "Rua 19, 550 – Centro, Barretos/SP",
-            horario: "Segunda a sexta, das 8h às 17h",
-            publicoAlvo: "Trabalhadores em busca de emprego ou recolocação",
+            descricao: "O Polo de Empregabilidade Inclusiva de Barretos integra o Programa Meu Emprego Inclusivo, executado regionalmente pelo ITS Brasil, com metodologia de Emprego Apoiado. Promove inclusão, permanência e desenvolvimento profissional de pessoas com deficiência, atuando com candidatos e empregadores.",
+            endereco: "Poupatempo — Via Conselheiro Antônio Prado, 1400, Pedro Cavalini, Barretos/SP",
+            horario: "Segunda a sexta-feira, das 9h às 12h e das 13h às 17h",
+            publicoAlvo: "Pessoas com deficiência a partir de 16 anos e empresas interessadas em contratação inclusiva — região de Barretos e cidades vizinhas",
             servicos: [
-              "Cadastro e encaminhamento para vagas",
-              "Cursos de qualificação profissional",
-              "Elaboração de currículo",
-              "Feiras de emprego mensais"
-            ]
-          }
-        },
-        {
-          nome: "Cozinha Solidária Barretos",
-          topicos: [
-            "refeições gratuitas",
-            "apoio alimentar",
-            "doações e voluntariado"
-          ],
-          contato: {
-            telefone: "(17) 3310-4502",
-            email: "cozinha@barretos.sp.gov.br"
-          },
-          tipo: "rede",
-          icone: "🍲",
-          detalhes: {
-            descricao: "Projeto de segurança alimentar que prepara e distribui refeições gratuitas diariamente para famílias em situação de insegurança alimentar.",
-            endereco: "Rua 11, 120 – Oriente, Barretos/SP",
-            horario: "Segunda a sábado, das 10h às 14h (distribuição de refeições)",
-            publicoAlvo: "Famílias em situação de vulnerabilidade alimentar",
-            servicos: [
-              "Refeições gratuitas diárias",
-              "Cestas básicas mensais",
-              "Oficinas de culinária saudável",
-              "Recebimento de doações"
-            ]
-          }
-        },
-        {
-          nome: "Núcleo Cidadania Ativa",
-          topicos: [
-            "documentação civil",
-            "orientação sobre direitos",
-            "cidadania e participação"
-          ],
-          contato: {
-            telefone: "(17) 3310-4503",
-            site: "www.cidadaniaativa.org.br"
-          },
-          tipo: "procura",
-          icone: "📄",
-          detalhes: {
-            descricao: "Núcleo de cidadania que auxilia na obtenção de documentos civis, orientação sobre direitos e incentivo à participação social comunitária.",
-            endereco: "Rua 13, 400 – América, Barretos/SP",
-            horario: "Segunda a sexta, das 8h às 16h",
-            publicoAlvo: "Cidadãos em busca de documentação e orientação",
-            servicos: [
-              "Emissão de RG e CPF gratuitos",
-              "Certidões de nascimento e casamento",
-              "Orientação sobre direitos do cidadão",
-              "Mutirões de documentação"
-            ]
+              "Mapeamento do perfil profissional, vocacional e de interesses",
+              "Capacitação e preparação para o mercado",
+              "Indicação de vagas compatíveis com o perfil",
+              "Acompanhamento antes, durante e depois da contratação",
+              "Suporte técnico a empresas nos processos de contratação",
+              "Preparação e ambientação da equipe",
+              "Oficinas e orientações de enfrentamento ao capacitismo"
+            ],
+            acesso: "Atendimento presencial ou on-line mediante agendamento pelo telefone ou e-mail."
           }
         }
       ]

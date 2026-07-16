@@ -52,12 +52,20 @@
       .join('<br>');
   }
 
+  function temContato(contato) {
+    return !!(contato && (contato.telefone || contato.telefone2 || contato.email || contato.site));
+  }
+
+  function linkTelefone(numero, bloco) {
+    const tel = String(numero).replace(/\D/g, '');
+    return `<a href="tel:+55${tel}">${bloco ? '📞 ' : ''}Tel. ${numero}</a>`;
+  }
+
   function formatarContato(contato, bloco) {
+    if (!contato) return '';
     const itens = [];
-    if (contato.telefone) {
-      const tel = contato.telefone.replace(/\D/g, '');
-      itens.push(`<a href="tel:+55${tel}">${bloco ? '📞 ' : ''}Tel. ${contato.telefone}</a>`);
-    }
+    if (contato.telefone) itens.push(linkTelefone(contato.telefone, bloco));
+    if (contato.telefone2) itens.push(linkTelefone(contato.telefone2, bloco));
     if (contato.email) {
       itens.push(`<a href="mailto:${contato.email}">${bloco ? '✉️ ' : ''}${contato.email}</a>`);
     }
@@ -81,6 +89,10 @@
   }
 
   function criarCardHTML(inst, cor, catNome, instId) {
+    const contatoHtml = temContato(inst.contato)
+      ? `<div class="card-contato" style="color: ${cor}">${formatarContato(inst.contato, false)}</div>`
+      : '';
+
     return `
       <div class="instituicao-card" data-inst-id="${instId}" role="button" tabindex="0" aria-label="Ver detalhes de ${inst.nome}">
         <div class="card-inner" style="border-color: ${cor}; background: linear-gradient(135deg, #fff 60%, ${cor}08)">
@@ -89,9 +101,7 @@
           <ul class="card-topicos">
             ${inst.topicos.map(t => `<li>${t}</li>`).join('')}
           </ul>
-          <div class="card-contato" style="color: ${cor}">
-            ${formatarContato(inst.contato, false)}
-          </div>
+          ${contatoHtml}
           <span class="card-tipo-badge tipo-${inst.tipo}" title="${inst.tipo}">
             ${TIPO_ICONES[inst.tipo] || '📍'}
           </span>
@@ -105,6 +115,7 @@
     const overlay = document.getElementById('modal-overlay');
     const conteudo = document.getElementById('modal-conteudo');
     const det = inst.detalhes || {};
+    const contatoHtml = formatarContato(inst.contato, true);
 
     conteudo.innerHTML = `
       <div class="modal-header" style="--modal-cor: ${cat.cor}">
@@ -150,14 +161,47 @@
               <p>${det.horario}</p>
             </div>
           </div>` : ''}
+        ${det.acesso ? `
+          <div class="modal-info-item">
+            <span class="modal-info-icone">🚪</span>
+            <div>
+              <strong>Como acessar</strong>
+              <p>${det.acesso}</p>
+            </div>
+          </div>` : ''}
+        ${det.articulacao ? `
+          <div class="modal-info-item">
+            <span class="modal-info-icone">🔗</span>
+            <div>
+              <strong>Articulação com a rede</strong>
+              <p>${det.articulacao}</p>
+            </div>
+          </div>` : ''}
+        ${det.responsaveis ? `
+          <div class="modal-info-item">
+            <span class="modal-info-icone">👤</span>
+            <div>
+              <strong>Responsáveis</strong>
+              <p>${det.responsaveis}</p>
+            </div>
+          </div>` : ''}
+        ${det.observacao ? `
+          <div class="modal-info-item">
+            <span class="modal-info-icone">ℹ️</span>
+            <div>
+              <strong>Observação</strong>
+              <p>${det.observacao}</p>
+            </div>
+          </div>` : ''}
       </div>
 
+      ${contatoHtml ? `
       <div class="modal-secao modal-contatos">
         <h3>Contato</h3>
         <div class="modal-contatos-lista">
-          ${formatarContato(inst.contato, true)}
+          ${contatoHtml}
         </div>
-      </div>
+      </div>` : ''}
     `;
 
     overlay.classList.add('ativo');
